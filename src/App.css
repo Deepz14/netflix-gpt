@@ -1,3 +1,102 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.header-container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background: linear-gradient(150deg, rgba(0,0,0,0.5), transparent);
+}
+
+.header-bg-image-wrapper{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+}
+
+.svg-icon-netflix-logo{
+    width: calc(100% / 4);
+    fill:#e50914;
+    margin-left: 10px;
+}
+
+.form-error{
+    color: #e87c03;
+    font-weight: 600;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .header-logo-wrapper{
+        background: #000;
+    }
+    .login-container{
+        height: 100vh;
+        background: #000;
+        padding-top: 30px;
+    }
+    .form-container{
+        padding: 35px 26px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .header-logo-wrapper{
+        background: #000;
+    }
+    .svg-icon-netflix-logo{
+        width: calc(100% / 5);
+    }
+    .login-container{
+        height: 100vh;
+        background: #000;
+        padding-top: 30px;
+    }
+    .form-container{
+        padding: 35px 26px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .svg-icon-netflix-logo{
+        width: calc(100% / 6);
+    }
+    .header-logo-wrapper{
+        background: transparent;
+        padding: 20px 26px;
+    }
+    .login-container{
+        margin: auto;
+        width: calc(100% / 3);
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .form-container{
+        height: auto;
+        background: #000;
+        opacity: 0.9;
+        padding: 28px 40px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .svg-icon-netflix-logo{
+        width: calc(100% / 8);
+    }
+    .header-container{
+        background: linear-gradient(180deg, rgba(0,0,0,0.5), transparent) !important;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}
