@@ -1,11 +1,19 @@
 import React, {useState, useRef} from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { add } from "../store/userSlice";
 import Header from "./Header";
 import { formValidation } from "../utils/helper";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../config/firebase";
 
 const Login = () => {
     const [isSignIn, setIsSignIn] = useState(true);
     const [showEmailError, setShowEmailError] = useState(null);
     const [showPasswordError, setShowPasswordError] = useState(null);
+    const [showAuthError, setShowAuthError] = useState(null);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const email = useRef(null);
     const name = useRef(null);
     const password = useRef(null);
@@ -22,6 +30,35 @@ const Login = () => {
             setShowEmailError(false);
             setShowPasswordError(false);
             // Make an API request
+            isSignIn ? signInHandler() : signUpHandler();
+        }
+    }
+
+    const signInHandler = async() => {
+        try{
+            const userCredential = await signInWithEmailAndPassword(auth, email.current.value, password.current.value);
+            // Signed in 
+            const user = userCredential.user;
+            console.log("Login Info: ", user);
+            dispatch(add({ uId: user.uid, email: user.email, displayName: user.displayName, accessToken: user.accessToken }));
+            navigate("/browse");
+        }catch(error){
+            setShowAuthError(error.message);
+        }
+    }
+
+    const signUpHandler = async() => {
+        try{
+            const userCredential = await createUserWithEmailAndPassword(auth, email.current.value, password.current.value);
+            const user = userCredential.user;
+            const userProfileUpdate = await updateProfile(auth.currentUser, {
+                displayName: name.current.value,
+            });
+            console.log("SignUp User:", user);
+            dispatch(add({ uId: user.uid, email: user.email, displayName: user.displayName, accessToken: user.accessToken }));
+            navigate("/browse");
+        }catch(error){
+            setShowAuthError(error.message);
         }
     }
 
@@ -52,6 +89,12 @@ const Login = () => {
                            type="password" placeholder="Password"  />
                         {  showPasswordError && (
                             <div className="form-error">{showPasswordError.message}</div> )
+                        }
+                    </div>
+                    <div className="form-input-container my-3">
+                        {
+                            showAuthError &&
+                            <div className="form-error">{showAuthError}</div>
                         }
                     </div>
                     <div className="form-btn-container my-3" onClick={() => handlerAuthentication()}>
