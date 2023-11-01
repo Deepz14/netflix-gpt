@@ -12,10 +12,10 @@ const Login = () => {
 
     const handlerAuthentication = () => {
         const checkValidation = formValidation(email.current.value, password.current.value);
-        if(checkValidation.field === "email"){
+        if(checkValidation?.field === "email"){
             setShowEmailError(checkValidation);
             setShowPasswordError(false);
-        }else if (checkValidation.field === "password"){
+        }else if (checkValidation?.field === "password"){
             setShowPasswordError(checkValidation);
             setShowEmailError(false);
         }else{
