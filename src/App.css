@@ -18,8 +18,13 @@
     z-index: -1;
 }
 
-.svg-icon-netflix-logo{
+.header-logo-wrapper  .svg-icon-netflix-logo{
     width: calc(100% / 4);
+    fill:#e50914;
+    margin-left: 10px;
+}
+
+.browse-nav-container{
     fill:#e50914;
     margin-left: 10px;
 }
@@ -27,6 +32,60 @@
 .form-error{
     color: #e87c03;
     font-weight: 600;
+}
+
+.user-icon-container:hover{
+    .caret-down{
+        opacity: 0;
+    }
+    .caret-up, .account-details-card{
+        opacity: 1;
+    }
+}
+
+.caret-up, .account-details-card{
+    opacity: 0;
+}
+
+.caret-down::after{
+    content: '';
+    position: absolute;
+    border-top: 8px solid #000;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    top: -22px;
+    right: -30px;
+}
+
+.caret-up::after{
+    content: '';
+    position: absolute;
+    border-bottom: 8px solid #000;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    top: -22px;
+    right: -30px;
+}
+
+.account-details-card{
+    position: absolute;
+    width: 180px;
+    top: 80px;
+    right: 50px;
+}
+
+.account-details-card > svg{
+    fill: #fff;
+}
+
+.account-details-card::after{
+    content: '';
+    position: absolute;
+    border-bottom: 10px solid #000;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    top: -11px;
+    right: 50px;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -49,7 +108,7 @@
     .header-logo-wrapper{
         background: #000;
     }
-    .svg-icon-netflix-logo{
+    .header-logo-wrapper  .svg-icon-netflix-logo{
         width: calc(100% / 5);
     }
     .login-container{
@@ -64,7 +123,7 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    .svg-icon-netflix-logo{
+    .header-logo-wrapper  .svg-icon-netflix-logo{
         width: calc(100% / 6);
     }
     .header-logo-wrapper{
@@ -89,7 +148,7 @@
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    .svg-icon-netflix-logo{
+    .header-logo-wrapper .svg-icon-netflix-logo{
         width: calc(100% / 8);
     }
     .header-container{
