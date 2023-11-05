@@ -9,8 +9,9 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     const handlerLogout = () => {
+        sessionStorage.clear();
         dispatch(remove());
-        navigate("/");
+        navigate("/login");
     }
 
     return (
@@ -18,7 +19,7 @@ const Navbar = () => {
             <div className="w-[150px] h-full browse-nav-container">
                 {NETFLIX_LOGO}
             </div>
-            <div className="user-account-details border border-gray-300 pr-5 mr-8">
+            <div className="user-account-details pr-5 mr-8">
                 {/* <li>{userInfo?.displayName}</li> */}
                 {/* <button onClick={handlerLogout}
                     className="px-5 py-2 mx-3 rounded hover:bg-red-500 hover:text-white">
@@ -33,7 +34,7 @@ const Navbar = () => {
                     <div className="account-details-card bg-black text-white rounded-sm">
                         <ul className="p-3">
                             <li className="flex items-center mb-3">
-                                <img class="profile-icon rounded" 
+                                <img className="profile-icon rounded" 
                                     src="https://occ-0-4994-2164.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABcVwQYPmMxXjQNm44V_uHKBPrxZ3hnCbgZ_xaTT-7tQma42tQFQIY0tumcKwnxlRQYHJpCZVV_E--0Vvvhpca6W19qWqiUs.png?r=0a4" 
                                     alt="user-img" />
                                  <span className="ml-3">Deepz</span>
@@ -52,8 +53,8 @@ const Navbar = () => {
                            </li>
                         </ul>
                         <hr />
-                        <div className="pt-2 pb-3 px-4">
-                            <Link onClick={handlerLogout}>Sign Out of Netflix</Link>
+                        <div className="pt-2 pb-3 px-4" onClick={handlerLogout}>
+                            <span>Sign Out of Netflix</span>
                         </div>
                     </div>
                 </div>

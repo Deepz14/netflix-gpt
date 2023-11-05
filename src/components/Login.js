@@ -1,6 +1,6 @@
-import React, {useState, useRef} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { add } from "../store/userSlice";
 import Header from "./Header";
 import { formValidation } from "../utils/helper";
@@ -12,11 +12,17 @@ const Login = () => {
     const [showEmailError, setShowEmailError] = useState(null);
     const [showPasswordError, setShowPasswordError] = useState(null);
     const [showAuthError, setShowAuthError] = useState(null);
+    const userInfo = useSelector((state) => state.user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const email = useRef(null);
     const name = useRef(null);
     const password = useRef(null);
+
+    useEffect(() => { 
+        const isAuthUser = JSON.parse(sessionStorage.getItem('user'));
+        userInfo || isAuthUser?.uId && navigate("/");
+    }, []);
 
     const handlerAuthentication = () => {
         const checkValidation = formValidation(email.current.value, password.current.value);
@@ -39,8 +45,9 @@ const Login = () => {
             const userCredential = await signInWithEmailAndPassword(auth, email.current.value, password.current.value);
             // Signed in 
             const user = userCredential.user;
-            console.log("Login Info: ", user);
-            dispatch(add({ uId: user.uid, email: user.email, displayName: user.displayName, accessToken: user.accessToken }));
+            const userInfo = { uId: user.uid, email: user.email, displayName: user.displayName, accessToken: user.accessToken }
+            dispatch(add(userInfo));
+            sessionStorage.setItem('user', JSON.stringify(userInfo));
             navigate("/browse");
         }catch(error){
             setShowAuthError(error.message);
@@ -54,12 +61,20 @@ const Login = () => {
             const userProfileUpdate = await updateProfile(auth.currentUser, {
                 displayName: name.current.value,
             });
-            console.log("SignUp User:", user);
-            dispatch(add({ uId: user.uid, email: user.email, displayName: user.displayName, accessToken: user.accessToken }));
+            const userInfo = { uId: user.uid, email: user.email, displayName: user.displayName, accessToken: user.accessToken }
+            dispatch(add(userInfo));
+            sessionStorage.setItem('user', JSON.stringify(userInfo));
             navigate("/browse");
         }catch(error){
             setShowAuthError(error.message);
         }
+    }
+
+    const toggleForm = () => {
+        email.current.value = '';
+        password.current.value = '';
+        if(!isSignIn) {name.current.value = ''};
+        setIsSignIn(!isSignIn);
     }
 
     return (
@@ -104,7 +119,7 @@ const Login = () => {
                         <span className="text-lg text-gray-500">
                             {isSignIn ? 'New to Netflix?' : 'Already an User?'}
                         </span> 
-                        <span onClick={() => setIsSignIn(!isSignIn)} className="text-lg ml-2">
+                        <span onClick={() => toggleForm()} className="text-lg ml-2">
                             {isSignIn ? 'Sign Up' : 'Sign In'}
                         </span>
                     </div>
