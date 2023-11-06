@@ -16,13 +16,21 @@ const CardContainer = () => {
     const topRatedMovies = useSelector((state) =>  state.movies.topRatedMovie);
     const upcomingMovies = useSelector((state) => state.movies.upcomingMovie);
     return (
-        <div className="ml-8 pl-5 card-container">
-            <div className="text-white">
-                <MovieList title={"Popular Movies"} movies={popularMovies} />
+        <div>
+            <div className="ml-8 pl-5 card-container">
+                <div className="text-white relative">
+                    <MovieList cat={"mvct1"} title={"Popular Movies"} movies={popularMovies} />
+                </div>
+                <div className="relative">   
+                    <MovieList cat={"mvct2"} title={"Now Playing Movies"} movies={nowPlayingMovies} />
+                </div>
+                <div className="relative">
+                    <MovieList cat={"mvct3"} title={"Top Rated Movies"} movies={topRatedMovies} />
+                </div>
+                <div className="relative">
+                    <MovieList cat={"mvct4"} title={"Upcoming Movies"} movies={upcomingMovies} />
+                </div>
             </div>
-            <MovieList title={"Now Playing Movies"} movies={nowPlayingMovies} />
-            <MovieList title={"Top Rated Movies"} movies={topRatedMovies} />
-            <MovieList title={"Upcoming Movies"} movies={upcomingMovies} />
         </div>
     )
 }

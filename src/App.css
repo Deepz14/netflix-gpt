@@ -108,6 +108,10 @@ body{
 }
 .movieList-wrapper{
     width: 100%;
+    overflow-x: scroll;
+}
+.movieList-wrapper::-webkit-scrollbar {
+    display: none;
 }
 .movie-card-wrapper{
     width: 100%;
@@ -118,6 +122,24 @@ body{
     flex: 1 0 195px;
     display: inline-block;
     margin: 5px;
+}
+
+.slider-left{
+    position: absolute;
+    top: 130px;
+    left: -20px;
+    opacity: 0;
+}
+
+.slider-right{
+    position: absolute;
+    top: 130px;
+    right: 25px;
+    opacity: 0;
+}
+
+.showOpacity{
+    opacity: 1;
 }
 
 /* Extra small devices (phones, 600px and down) */
