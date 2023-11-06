@@ -28,6 +28,7 @@ export const MOVIE_DB_API_KEY = "8ad28020d939e38f9d90e9c6bce195e6";
 export const AUTH_HEADER = {
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YWQyODAyMGQ5MzllMzhmOWQ5MGU5YzZiY2UxOTVlNiIsInN1YiI6IjVlZGEzN2NlMWIxNTdkMDAxZTU5YjU3ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.RWichfckBBuaOSE_Ljxnw-6XO00Lmr_6jZShaKqevTo',
     'Accept': 'application/json'
-}
-export const MOVIE_DB_IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
-export const WATCH_URL = "https://www.youtube.com/embed/"; 
+};
+export const BG_MOVIE_DB_IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
+export const WATCH_URL = "https://www.youtube.com/embed/";
+export const CARD_MOVIE_DB_IMAGE_PATH = "https://image.tmdb.org/t/p/w500";

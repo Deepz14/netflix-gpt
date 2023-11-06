@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+    overflow-x: hidden;
+}
+
 .header-container{
     position: absolute;
     width: 100%;
@@ -50,7 +54,7 @@
 .caret-down::after{
     content: '';
     position: absolute;
-    border-top: 8px solid #000;
+    border-top: 8px solid #fff;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     top: -22px;
@@ -60,7 +64,7 @@
 .caret-up::after{
     content: '';
     position: absolute;
-    border-bottom: 8px solid #000;
+    border-bottom: 8px solid #fff;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     top: -22px;
@@ -97,6 +101,23 @@
     position: absolute;
     top: 210px;
     left: 100px;
+}
+
+.card-container{
+    margin-top: -280px;
+}
+.movieList-wrapper{
+    width: 100%;
+}
+.movie-card-wrapper{
+    width: 100%;
+    display: flex;
+    
+}
+.movie-card{
+    flex: 1 0 195px;
+    display: inline-block;
+    margin: 5px;
 }
 
 /* Extra small devices (phones, 600px and down) */

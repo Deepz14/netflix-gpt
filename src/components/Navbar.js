@@ -15,7 +15,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="navbar-container w-full shadow flex items-center justify-between relative py-3 px-5">
+        <nav className="navbar-container w-full shadow flex items-center justify-between relative py-5 px-5">
             <div className="w-[150px] h-full browse-nav-container">
                 {NETFLIX_LOGO}
             </div>
