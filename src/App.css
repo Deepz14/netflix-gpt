@@ -26,7 +26,7 @@
 
 .browse-nav-container{
     fill:#e50914;
-    margin-left: 10px;
+    margin-left: 60px;
 }
 
 .form-error{
@@ -91,6 +91,12 @@
 .navbar-container{
     position: absolute;
     background: transparent;
+}
+
+.video-title-container{
+    position: absolute;
+    top: 210px;
+    left: 100px;
 }
 
 /* Extra small devices (phones, 600px and down) */

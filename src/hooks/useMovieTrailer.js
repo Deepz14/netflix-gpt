@@ -18,7 +18,7 @@ const useMovieTrailer = (movieId) => {
         headers: AUTH_HEADER
       });
       const result = await respone.json();
-      const filterTrailer = result.results.filter((movie) => movie.type === 'Trailer');
+      const filterTrailer = result.results.filter((movie) => movie.type === 'Teaser');
       dispatch(addTrailerMovie(filterTrailer));
     }
 }
