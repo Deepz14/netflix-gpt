@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { remove } from "../store/userSlice";
-import { searchMovies } from "../store/searchSlice";
+import { searchMovies, addMovieResults } from "../store/searchSlice";
 import { NETFLIX_LOGO, USER_PROFILE_ICON } from "../utils/constants";
 
 const Navbar = () => {
@@ -18,17 +18,17 @@ const Navbar = () => {
     }
 
     const searchNavigate = (e) => {
-        console.log("Search: ", e.target.value, e.target);
         if(e.target.value){
             dispatch(searchMovies(e.target.value));
             navigate("/search");
         }else{
+            dispatch(addMovieResults([]));
             navigate("/browse");
         }
     }
 
     useEffect(() => {
-        if(searchInput.current.value === null || searchInput.current.value ==='') navigate("/browse");
+        if(searchInput.current.value === null || searchInput.current.value ==='') {navigate("/browse")};
     }, []);
 
 

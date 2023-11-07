@@ -141,6 +141,10 @@ body{
     opacity: 1;
 }
 
+.movie-suggestion-card:hover, .movie-card:hover{
+    transform: scale(1.1); 
+}
+
 .animate {
     animation : shimmer 3s infinite;
     background: linear-gradient(to right, #727171 4%, #504e4e 25%, #383838 36%);

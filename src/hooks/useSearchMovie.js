@@ -1,15 +1,34 @@
 import { useEffect } from "react";
-
+import { useDispatch } from "react-redux";
+import { addMovieResults, enableShimmerLoad, disableShimmerLoad } from "../store/searchSlice";
+import { AUTH_HEADER, SEARCH_MOVIES_API } from "../utils/constants";
 
 const useSearchMovie = (searchMovieQuery) => {
-    console.log("SearchMovieQuery: ", searchMovieQuery);
-
+   const dispatch = useDispatch();
     useEffect(() => {
-        if(searchMovieQuery) console.log("fetchMovies");
+        dispatch(enableShimmerLoad());
+        // debounce handler
+        const fetchMoviesTimer = setTimeout(() => {
+            if(searchMovieQuery) fetchMovies();
+        }, 200);
+        
+        return () => {
+            clearTimeout(fetchMoviesTimer);
+            dispatch(disableShimmerLoad());
+        }
     }, [searchMovieQuery]);
 
     const fetchMovies = async() => {
-
+        console.log("fetchMovies");
+        dispatch(addMovieResults([]));
+        const getMovies =  await fetch(SEARCH_MOVIES_API + "query=" + searchMovieQuery +"&include_adult=false&page=1", {
+            method: 'GET',
+            headers: AUTH_HEADER
+        });
+        const response = await getMovies.json();
+        console.log("responses: ", response);
+        dispatch(addMovieResults(response.results));
+        dispatch(disableShimmerLoad());
     }
 }
 

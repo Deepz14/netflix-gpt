@@ -32,4 +32,4 @@ export const AUTH_HEADER = {
 export const BG_MOVIE_DB_IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
 export const WATCH_URL = "https://www.youtube.com/embed/";
 export const CARD_MOVIE_DB_IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
-export const SEARCH_MOVIES_API = "https://api.themoviedb.org/3/search/movie?query=leo&include_adult=false&page=1"
+export const SEARCH_MOVIES_API = "https://api.themoviedb.org/3/search/movie?"
