@@ -7,6 +7,7 @@ const useSearchMovie = (searchMovieQuery) => {
    const dispatch = useDispatch();
     useEffect(() => {
         dispatch(enableShimmerLoad());
+        dispatch(addMovieResults([]));
         // debounce handler
         const fetchMoviesTimer = setTimeout(() => {
             if(searchMovieQuery) fetchMovies();
@@ -20,8 +21,7 @@ const useSearchMovie = (searchMovieQuery) => {
 
     const fetchMovies = async() => {
         console.log("fetchMovies");
-        dispatch(addMovieResults([]));
-        const getMovies =  await fetch(SEARCH_MOVIES_API + "query=" + searchMovieQuery +"&include_adult=false&page=1", {
+        const getMovies =  await fetch(SEARCH_MOVIES_API + "query=" + searchMovieQuery +"&page=1", {
             method: 'GET',
             headers: AUTH_HEADER
         });

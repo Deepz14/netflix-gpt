@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { remove } from "../store/userSlice";
 import { searchMovies, addMovieResults } from "../store/searchSlice";
-import { NETFLIX_LOGO, USER_PROFILE_ICON } from "../utils/constants";
+import { ACCOUNT_DETAILS_PROFILE_IMG, NETFLIX_LOGO, USER_PROFILE_ICON } from "../utils/constants";
 
 const Navbar = () => {
     const userInfo = useSelector((state) => state.user);
@@ -57,7 +57,7 @@ const Navbar = () => {
                             <ul className="p-3">
                                 <li className="flex items-center mb-3">
                                     <img className="profile-icon rounded" 
-                                        src="https://occ-0-4994-2164.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABcVwQYPmMxXjQNm44V_uHKBPrxZ3hnCbgZ_xaTT-7tQma42tQFQIY0tumcKwnxlRQYHJpCZVV_E--0Vvvhpca6W19qWqiUs.png?r=0a4" 
+                                        src={ACCOUNT_DETAILS_PROFILE_IMG} 
                                         alt="user-img" />
                                     <span className="ml-3">Deepz</span>
                                 </li>
