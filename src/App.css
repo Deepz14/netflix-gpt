@@ -94,7 +94,7 @@ body{
 
 .navbar-container{
     position: absolute;
-    background: transparent;
+    background: #000;
 }
 
 .video-title-container{
@@ -115,8 +115,7 @@ body{
 }
 .movie-card-wrapper{
     width: 100%;
-    display: flex;
-    
+    display: flex; 
 }
 .movie-card{
     flex: 1 0 195px;
@@ -141,6 +140,21 @@ body{
 .showOpacity{
     opacity: 1;
 }
+
+.animate {
+    animation : shimmer 3s infinite;
+    background: linear-gradient(to right, #727171 4%, #504e4e 25%, #383838 36%);
+    background-size: 1000px 100%;
+ }
+
+ @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {

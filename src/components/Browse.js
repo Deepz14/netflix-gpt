@@ -9,7 +9,6 @@ const Browse = () => {
 
     return (
         <div className="bg-black text-white">
-          <Navbar />
           <MainContainer />
           <CardContainer />
         </div>

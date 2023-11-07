@@ -40,17 +40,17 @@ const MovieList = ({title, movies, cat}) => {
                         movies.map((movie) =>( <Movie key={movie?.id} info={movie} />))
                     }
                 </div>
-            <div className="slider-left cursor-pointer bg-gradient-to-b from-black to-transparent" id={"slider-"+ cat}>
-                <button className="px-3 py-8 border border-gray-500" onClick={() => handlerSliderLeft(cat)} >
-                    <h1 className="text-3xl font-bold">‹</h1>
-                </button>
+                <div className="slider-left cursor-pointer bg-gradient-to-b from-black to-transparent" id={"slider-"+ cat}>
+                    <button className="px-3 py-8 border border-gray-500" onClick={() => handlerSliderLeft(cat)} >
+                        <h1 className="text-3xl font-bold">‹</h1>
+                    </button>
+                </div>
+                <div className="slider-right cursor-pointer bg-gradient-to-b from-black to-transparent" id={"slider-"+ cat}>
+                    <button className="px-3 py-8 border border-gray-500" onClick={() => handlerSliderRight(cat)}>
+                        <h1 className="text-3xl font-bold">›</h1>
+                    </button>
+                </div>
             </div>
-            <div className="slider-right cursor-pointer bg-gradient-to-b from-black to-transparent" id={"slider-"+ cat}>
-                <button className="px-3 py-8 border border-gray-500" onClick={() => handlerSliderRight(cat)}>
-                    <h1 className="text-3xl font-bold">›</h1>
-                </button>
-            </div>
-        </div>
         </div>
     
     )
