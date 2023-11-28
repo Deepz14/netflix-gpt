@@ -32,7 +32,7 @@ const MovieList = ({title, movies, cat}) => {
 
 
     return (
-        <div>
+        <div className="ml-1 pl-1">
             <h1 className="text-xl font-bold my-3 mx-5 pl-3">{title}</h1>
             <div className="movieList-wrapper ml-5 pl-2" id={cat} onMouseLeave={() => movieListHoverOff(cat)} onMouseOver={() => movieListHoverOn(cat)}>
                 <div className="movie-card-wrapper">

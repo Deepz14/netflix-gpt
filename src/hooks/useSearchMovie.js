@@ -21,7 +21,7 @@ const useSearchMovie = (searchMovieQuery) => {
 
     const fetchMovies = async() => {
         console.log("fetchMovies");
-        const getMovies =  await fetch(SEARCH_MOVIES_API + "query=" + searchMovieQuery +"&page=1", {
+        const getMovies =  await fetch(SEARCH_MOVIES_API + "query=" + searchMovieQuery +"&page=1&include_adult=false", {
             method: 'GET',
             headers: AUTH_HEADER
         });

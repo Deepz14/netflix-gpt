@@ -32,6 +32,7 @@ export const AUTH_HEADER = {
 export const BG_MOVIE_DB_IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
 export const WATCH_URL = "https://www.youtube.com/embed/";
 export const CARD_MOVIE_DB_IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
-export const SEARCH_MOVIES_API = "https://api.themoviedb.org/3/search/movie?"
-export const NETFLIX_HEADER_BG_IMG = "https://assets.nflxext.com/ffe/siteui/vlv3/dace47b4-a5cb-4368-80fe-c26f3e77d540/f5b52435-458f-498f-9d1d-ccd4f1af9913/IN-en-20231023-popsignuptwoweeks-perspective_alpha_website_large.jpg";
+export const SEARCH_MOVIES_API = "https://api.themoviedb.org/3/search/multi?"
+export const NETFLIX_HEADER_BG_IMG = "https://assets.nflxext.com/ffe/siteui/vlv3/d1532433-07b1-4e39-a920-0f08b81a489e/67033404-2df8-42e0-a5a0-4c8288b4da2c/IN-en-20231120-popsignuptwoweeks-perspective_alpha_website_large.jpg";
+// https://assets.nflxext.com/ffe/siteui/vlv3/dace47b4-a5cb-4368-80fe-c26f3e77d540/f5b52435-458f-498f-9d1d-ccd4f1af9913/IN-en-20231023-popsignuptwoweeks-perspective_alpha_website_large.jpg
 export const ACCOUNT_DETAILS_PROFILE_IMG = "https://occ-0-4994-2164.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABcVwQYPmMxXjQNm44V_uHKBPrxZ3hnCbgZ_xaTT-7tQma42tQFQIY0tumcKwnxlRQYHJpCZVV_E--0Vvvhpca6W19qWqiUs.png?r=0a4";

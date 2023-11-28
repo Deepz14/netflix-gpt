@@ -95,16 +95,25 @@ body{
 .navbar-container{
     position: absolute;
     background: #000;
+    z-index: 1;
 }
 
 .video-title-container{
     position: absolute;
-    top: 210px;
-    left: 100px;
+    top: 8.2rem;
+    left: 4.7rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.1));
+}
+
+iframe {
+    pointer-events: none;
 }
 
 .card-container{
-    margin-top: -280px;
+    position: relative;
+    width: 100vw;
+    background: linear-gradient(transparent, rgba(0,0,0,0.1));
+    margin-top: -7rem;
 }
 .movieList-wrapper{
     width: 100%;
@@ -125,15 +134,15 @@ body{
 
 .slider-left{
     position: absolute;
-    top: 130px;
-    left: -20px;
+    top: 7rem;
+    left: -1rem;
     opacity: 0;
 }
 
 .slider-right{
     position: absolute;
-    top: 130px;
-    right: 25px;
+    top: 7rem;
+    right: 1rem;
     opacity: 0;
 }
 
